@@ -9,5 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface HTTPResponseSerializer : NSObject
+// 编码格式
+@property(nonatomic, assign)NSStringEncoding stringEncoding;
+// 状态码
+@property(nonatomic, strong)NSIndexSet *acceptableStatusCodes;
+
+@property(nonatomic, strong)NSArray *acceptableContentTypes;
 
 @end
