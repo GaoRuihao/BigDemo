@@ -45,6 +45,9 @@
 		A0EF16B61EF235D70026F7DE /* LunchMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF16B51EF235D70026F7DE /* LunchMovieViewController.m */; };
 		A0EF16B81EF2394C0026F7DE /* qidong.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A0EF16B71EF238440026F7DE /* qidong.mp4 */; };
 		A0EF16BB1EF2609A0026F7DE /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF16BA1EF2609A0026F7DE /* UINavigationBar+Addition.m */; };
+		A0EF16BE1EF26AA40026F7DE /* GPUCameraDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF16BD1EF26AA40026F7DE /* GPUCameraDemoViewController.m */; };
+		A0EF16C21EF292D50026F7DE /* UIView+EX.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF16C11EF292D50026F7DE /* UIView+EX.m */; };
+		A0EF16C61EF3BE290026F7DE /* VideoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF16C51EF3BE290026F7DE /* VideoEditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +132,13 @@
 		A0EF16B71EF238440026F7DE /* qidong.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = qidong.mp4; sourceTree = "<group>"; };
 		A0EF16B91EF2609A0026F7DE /* UINavigationBar+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+Addition.h"; path = "StoryBoardDemo/UINavigationBar+Addition.h"; sourceTree = "<group>"; };
 		A0EF16BA1EF2609A0026F7DE /* UINavigationBar+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Addition.m"; path = "StoryBoardDemo/UINavigationBar+Addition.m"; sourceTree = "<group>"; };
+		A0EF16BC1EF26AA40026F7DE /* GPUCameraDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPUCameraDemoViewController.h; path = GPUDemo/GPUCameraDemoViewController.h; sourceTree = "<group>"; };
+		A0EF16BD1EF26AA40026F7DE /* GPUCameraDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPUCameraDemoViewController.m; path = GPUDemo/GPUCameraDemoViewController.m; sourceTree = "<group>"; };
+		A0EF16C01EF292D50026F7DE /* UIView+EX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+EX.h"; path = "GPUDemo/UIView+EX.h"; sourceTree = "<group>"; };
+		A0EF16C11EF292D50026F7DE /* UIView+EX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+EX.m"; path = "GPUDemo/UIView+EX.m"; sourceTree = "<group>"; };
+		A0EF16C31EF36D3A0026F7DE /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A0EF16C41EF3BE290026F7DE /* VideoEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoEditViewController.h; path = GPUDemo/VideoEditViewController.h; sourceTree = "<group>"; };
+		A0EF16C51EF3BE290026F7DE /* VideoEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoEditViewController.m; path = GPUDemo/VideoEditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +257,7 @@
 		A09234AA1EE1594400EB7927 /* HowBigDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A0EF16BF1EF26AAD0026F7DE /* GPUDemo */,
 				A0EF16B31EF230FA0026F7DE /* LunchingMovie */,
 				A06CDE121EF12A1A00DFAD00 /* UITest */,
 				A050DAED1EEF81D70033C519 /* StoryBoardDemo */,
@@ -255,6 +266,7 @@
 				A09234DE1EE1609C00EB7927 /* JavaScriptCore-Demo */,
 				A09234AE1EE1594400EB7927 /* AppDelegate.h */,
 				A09234AF1EE1594400EB7927 /* AppDelegate.m */,
+				A0EF16C31EF36D3A0026F7DE /* PrefixHeader.pch */,
 				A09234B11EE1594400EB7927 /* ViewController.h */,
 				A09234B21EE1594400EB7927 /* ViewController.m */,
 				A05DE2931EE530480056B1A5 /* UIScrollView+Additions.h */,
@@ -353,6 +365,19 @@
 				A0EF16B51EF235D70026F7DE /* LunchMovieViewController.m */,
 			);
 			name = LunchingMovie;
+			sourceTree = "<group>";
+		};
+		A0EF16BF1EF26AAD0026F7DE /* GPUDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A0EF16BC1EF26AA40026F7DE /* GPUCameraDemoViewController.h */,
+				A0EF16BD1EF26AA40026F7DE /* GPUCameraDemoViewController.m */,
+				A0EF16C41EF3BE290026F7DE /* VideoEditViewController.h */,
+				A0EF16C51EF3BE290026F7DE /* VideoEditViewController.m */,
+				A0EF16C01EF292D50026F7DE /* UIView+EX.h */,
+				A0EF16C11EF292D50026F7DE /* UIView+EX.m */,
+			);
+			name = GPUDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,9 +594,12 @@
 				A050DAF11EEF82900033C519 /* UIView+Addition.m in Sources */,
 				A05DE2911EE50B490056B1A5 /* WebViewController.m in Sources */,
 				A06CDE151EF1349000DFAD00 /* WawterFlowViewController.m in Sources */,
+				A0EF16C61EF3BE290026F7DE /* VideoEditViewController.m in Sources */,
 				A09234AD1EE1594400EB7927 /* main.m in Sources */,
 				A06CDE0D1EEFD29000DFAD00 /* HTTPResponseSerializer.m in Sources */,
+				A0EF16C21EF292D50026F7DE /* UIView+EX.m in Sources */,
 				A092350C1EE1609C00EB7927 /* RootViewController.m in Sources */,
+				A0EF16BE1EF26AA40026F7DE /* GPUCameraDemoViewController.m in Sources */,
 				A092350A1EE1609C00EB7927 /* OCCallJSViewController.m in Sources */,
 				A09235071EE1609C00EB7927 /* JSCallOCViewController.m in Sources */,
 			);
@@ -726,6 +754,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 26676U96B8;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HowBigDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = HowBigDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -740,6 +770,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 26676U96B8;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = HowBigDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = HowBigDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

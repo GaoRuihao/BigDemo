@@ -10,6 +10,7 @@
 #import "RootViewController.h"
 #import "MainViewController.h"
 #import "RequestViewController.h"
+#import "GPUCameraDemoViewController.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -25,8 +26,8 @@
     [super viewDidLoad];
     
 //    [self.jsBtn addTarget:self action:@selector(jsBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession"];
-    self.selectorArray = @[@"jsBtnAction:", @"urlInterceptedAction:", @"urlSessionAction:"];
+    self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession", @"美颜功能"];
+    self.selectorArray = @[@"jsBtnAction:", @"urlInterceptedAction:", @"urlSessionAction:",  @"useGPUAction:"];
     
 }
 
@@ -81,6 +82,11 @@
 - (void)urlSessionAction:(id)sender {
     RequestViewController *mainVC = [[RequestViewController alloc] init];
     [self.navigationController pushViewController:mainVC animated:YES];
+}
+
+- (void)useGPUAction:(id)sender {
+    GPUCameraDemoViewController *GPUCameraVC = [[GPUCameraDemoViewController alloc] init];
+    [self.navigationController pushViewController:GPUCameraVC animated:YES];
 }
 
 @end
