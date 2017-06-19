@@ -7,6 +7,8 @@
 //
 
 #import "VideoEditViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import "VideoManagerCenter.h"
 
 @interface VideoEditViewController ()
 
@@ -16,7 +18,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    VideoManagerCenter *videoManager = [VideoManagerCenter shareInstance];
+    __weak typeof(self) weakSelf = self;
+    [videoManager compressionSession:self.videosArray completeHandler:^(NSURL *mergeFileFath) {
+        AVPlayer *player = [[AVPlayer alloc] initWithURL:mergeFileFath];
+        AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
+        playerLayer.frame = weakSelf.view.bounds;
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+        [weakSelf.view.layer insertSublayer:playerLayer atIndex:0];
+        [player play];
+    }];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

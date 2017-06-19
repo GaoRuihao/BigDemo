@@ -10,4 +10,6 @@
 
 @interface VideoEditViewController : UIViewController
 
+@property(nonatomic, strong)NSArray *videosArray;
+
 @end

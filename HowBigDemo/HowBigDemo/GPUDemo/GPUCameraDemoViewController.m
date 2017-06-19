@@ -9,6 +9,7 @@
 #import "GPUCameraDemoViewController.h"
 #import <GPUImage/GPUImage.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "VideoEditViewController.h"
 
 @interface GPUCameraDemoViewController ()
 
@@ -18,6 +19,7 @@
 @property(nonatomic, strong)GPUImageMovieWriter *movieWriter;
 @property(nonatomic, strong)GPUImageView *filterView;
 
+@property(nonatomic, strong)NSMutableArray *fileURLArrays;
 
 @end
 
@@ -44,18 +46,10 @@
     //相机开始运行
     [self.videoCamera startCameraCapture];
     
-    //设置写入地址
-    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/LiveMovied.m4v"];
-    self.movieURL = [NSURL fileURLWithPath:pathToMovie];
-    
-    self.movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:self.movieURL size:self.view.bounds.size];
-    //设置为liveVideo
-    self.movieWriter.encodingLiveVideo = YES;
-    [self.filter addTarget:self.movieWriter];
-    //设置声音
-    self.videoCamera.audioEncodingTarget = self.movieWriter;
+    [self resetVideoWrite];
     
     [self setupViews];
+    self.fileURLArrays = [NSMutableArray array];
     
     //延迟2秒开始
 //    [self performSelector:@selector(starWrite) withObject:nil afterDelay:2];
@@ -90,6 +84,12 @@
     [changeCameraBtn setImage:[UIImage imageNamed:@"story_publish_icon_cam_turn"] forState:UIControlStateNormal];
     [changeCameraBtn addTarget:self action:@selector(turnCameraBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.filterView addSubview:changeCameraBtn];
+    
+    UIButton *nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    nextBtn.frame = CGRectMake(changeCameraBtn.maxX + 10, self.view.height - 100, 60, 60);
+    [nextBtn setImage:[UIImage imageNamed:@"story_publish_icon_cam_turn"] forState:UIControlStateNormal];
+    [nextBtn addTarget:self action:@selector(nextBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.filterView addSubview:nextBtn];
 }
 
 - (void)turnCameraBtnAction:(UIButton *)sender {
@@ -112,6 +112,8 @@
             [self.filter removeTarget:self.movieWriter];
             [self.movieWriter finishRecording];
             
+            [self resetVideoWrite];
+            return;
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
             if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:self.movieURL])
             {
@@ -133,6 +135,29 @@
             }
         });
     }
+}
+
+- (void)nextBtnAction:(UIButton *)sender {
+    VideoEditViewController *editVC = [[VideoEditViewController alloc] init];
+    editVC.videosArray = self.fileURLArrays;
+    [self.navigationController pushViewController:editVC animated:YES];
+}
+
+- (void)resetVideoWrite {
+    if (self.movieURL) {
+        [self.fileURLArrays addObject:self.movieURL];
+    }
+    //设置写入地址
+    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/LiveMovied-%d.mp4", self.fileURLArrays.count]];
+    self.movieURL = [NSURL fileURLWithPath:pathToMovie];
+    
+    self.movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:self.movieURL size:self.view.bounds.size];
+    //设置为liveVideo
+    self.movieWriter.encodingLiveVideo = YES;
+    [self.filter addTarget:self.movieWriter];
+    
+    //设置声音
+    self.videoCamera.audioEncodingTarget = self.movieWriter;
 }
 
 /*

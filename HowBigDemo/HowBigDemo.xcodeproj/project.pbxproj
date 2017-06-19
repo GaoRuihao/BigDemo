@@ -42,6 +42,7 @@
 		A092350E1EE1609C00EB7927 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09234FA1EE1609C00EB7927 /* SecondViewController.m */; };
 		A092350F1EE1609C00EB7927 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A09234FB1EE1609C00EB7927 /* SecondViewController.xib */; };
 		A09235101EE1609C00EB7927 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = A09234FC1EE1609C00EB7927 /* test.js */; };
+		A09397FA1EF76A5E00FC147A /* VideoManagerCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A09397F91EF76A5E00FC147A /* VideoManagerCenter.m */; };
 		A0EF16B61EF235D70026F7DE /* LunchMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF16B51EF235D70026F7DE /* LunchMovieViewController.m */; };
 		A0EF16B81EF2394C0026F7DE /* qidong.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A0EF16B71EF238440026F7DE /* qidong.mp4 */; };
 		A0EF16BB1EF2609A0026F7DE /* UINavigationBar+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EF16BA1EF2609A0026F7DE /* UINavigationBar+Addition.m */; };
@@ -127,6 +128,8 @@
 		A09234FA1EE1609C00EB7927 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		A09234FB1EE1609C00EB7927 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		A09234FC1EE1609C00EB7927 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		A09397F81EF76A5E00FC147A /* VideoManagerCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoManagerCenter.h; path = GPUDemo/VideoManagerCenter.h; sourceTree = "<group>"; };
+		A09397F91EF76A5E00FC147A /* VideoManagerCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoManagerCenter.m; path = GPUDemo/VideoManagerCenter.m; sourceTree = "<group>"; };
 		A0EF16B41EF235D70026F7DE /* LunchMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LunchMovieViewController.h; path = LunchingMovie/LunchMovieViewController.h; sourceTree = "<group>"; };
 		A0EF16B51EF235D70026F7DE /* LunchMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LunchMovieViewController.m; path = LunchingMovie/LunchMovieViewController.m; sourceTree = "<group>"; };
 		A0EF16B71EF238440026F7DE /* qidong.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = qidong.mp4; sourceTree = "<group>"; };
@@ -370,6 +373,8 @@
 		A0EF16BF1EF26AAD0026F7DE /* GPUDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A09397F81EF76A5E00FC147A /* VideoManagerCenter.h */,
+				A09397F91EF76A5E00FC147A /* VideoManagerCenter.m */,
 				A0EF16BC1EF26AA40026F7DE /* GPUCameraDemoViewController.h */,
 				A0EF16BD1EF26AA40026F7DE /* GPUCameraDemoViewController.m */,
 				A0EF16C41EF3BE290026F7DE /* VideoEditViewController.h */,
@@ -598,6 +603,7 @@
 				A09234AD1EE1594400EB7927 /* main.m in Sources */,
 				A06CDE0D1EEFD29000DFAD00 /* HTTPResponseSerializer.m in Sources */,
 				A0EF16C21EF292D50026F7DE /* UIView+EX.m in Sources */,
+				A09397FA1EF76A5E00FC147A /* VideoManagerCenter.m in Sources */,
 				A092350C1EE1609C00EB7927 /* RootViewController.m in Sources */,
 				A0EF16BE1EF26AA40026F7DE /* GPUCameraDemoViewController.m in Sources */,
 				A092350A1EE1609C00EB7927 /* OCCallJSViewController.m in Sources */,
