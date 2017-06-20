@@ -11,12 +11,14 @@
 #import "MainViewController.h"
 #import "RequestViewController.h"
 #import "GPUCameraDemoViewController.h"
+#import <objc/runtime.h>
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIButton *jsBtn;
 @property (nonatomic, strong)NSArray *functionArray;
 @property (nonatomic, strong)NSArray *selectorArray;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -25,15 +27,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self.jsBtn addTarget:self action:@selector(jsBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession", @"美颜功能"];
     self.selectorArray = @[@"jsBtnAction:", @"urlInterceptedAction:", @"urlSessionAction:",  @"useGPUAction:"];
+    
+    // KVO
+    // 在我们对某个对象完成监听的注册后，编译器会修改监听对象（上文中的tableView）的isa指针，让这个指针指向一个新生成的中间类。
+    NSLog(@"address: %p", self.tableView);
+    NSLog(@"class method: %@", self.tableView.class);
+    NSLog(@"description method: %@", self.tableView);
+    NSLog(@"use runtime to get class: %@", object_getClass(self.tableView));
+    [self.tableView addObserver: self forKeyPath: @"contentOffset" options: NSKeyValueObservingOptionNew context: nil];
+    NSLog(@"===================================================");
+    NSLog(@"address: %p", self.tableView);
+    NSLog(@"class method: %@", self.tableView.class);
+    NSLog(@"description method: %@", self.tableView);
+    NSLog(@"use runtime to get class %@", object_getClass(self.tableView));
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [self.tableView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
 }
 
 #pragma - UITableViewDelegate

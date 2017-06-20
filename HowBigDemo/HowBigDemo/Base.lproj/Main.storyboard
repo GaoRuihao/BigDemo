@@ -13,7 +13,7 @@
         <scene sceneID="aOu-BR-tP1">
             <objects>
                 <navigationController storyboardIdentifier="RootNavigationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FAc-1r-5it" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="asV-78-SjH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="asV-78-SjH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
@@ -76,6 +76,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kFm-fP-Yc9"/>
+                    <connections>
+                        <outlet property="tableView" destination="kqR-yR-48t" id="zFZ-Y6-mpi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
