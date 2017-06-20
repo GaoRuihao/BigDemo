@@ -35,7 +35,7 @@
     self.videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     
     //滤镜
-    self.filter = [[GPUImageSepiaFilter alloc] init];
+    self.filter = [[GPUImageFilter alloc] init];
     //显示view
     self.filterView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.filterView];
@@ -92,6 +92,8 @@
     [self.filterView addSubview:nextBtn];
 }
 
+
+
 - (void)turnCameraBtnAction:(UIButton *)sender {
     [UIView animateWithDuration:0.3 animations:^{
         sender.transform = CGAffineTransformRotate(sender.transform, M_PI);
@@ -108,11 +110,16 @@
         });
     } else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.videoCamera.audioEncodingTarget = nil;
-            [self.filter removeTarget:self.movieWriter];
-            [self.movieWriter finishRecording];
+           // self.videoCamera.audioEncodingTarget = nil;
             
-            [self resetVideoWrite];
+            __weak typeof(self) weakSelf = self;
+            [self.movieWriter finishRecordingWithCompletionHandler:^{
+                [weakSelf.filter removeTarget:weakSelf.movieWriter];
+                [weakSelf resetVideoWrite];
+            }];
+            
+            
+            NSLog(@"视频录制完毕");
             return;
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
             if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:self.movieURL])
@@ -151,13 +158,15 @@
     NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/LiveMovied-%d.mp4", self.fileURLArrays.count]];
     self.movieURL = [NSURL fileURLWithPath:pathToMovie];
     
-    self.movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:self.movieURL size:self.view.bounds.size];
+    self.movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:self.movieURL size:CGSizeMake(self.view.bounds.size.width + 1, self.view.bounds.size.height + 1)];
+    
+    //设置声音
+    self.videoCamera.audioEncodingTarget = self.movieWriter;
     //设置为liveVideo
     self.movieWriter.encodingLiveVideo = YES;
     [self.filter addTarget:self.movieWriter];
     
-    //设置声音
-    self.videoCamera.audioEncodingTarget = self.movieWriter;
+    
 }
 
 /*

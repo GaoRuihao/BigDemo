@@ -10,6 +10,13 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+@interface VideoManagerCenter()
+
+@property(nonatomic, strong)NSMutableArray *videoPathArray;
+@property(nonatomic)BOOL hasCombined;
+
+@end
+
 @implementation VideoManagerCenter
 
 + (VideoManagerCenter *)shareInstance {
@@ -19,6 +26,14 @@
         videoManager = [[VideoManagerCenter alloc] init];
     });
     return videoManager;
+}
+
+- (NSMutableArray *)videoPathArray {
+    if (!_videoPathArray) {
+        _videoPathArray = [NSMutableArray array];
+        BOOL isStore = [self restoreLocalVideo];
+    }
+    return _videoPathArray;
 }
 
 -(AVMutableComposition *)mergeVideostoOnevideo:(NSArray*)array {
@@ -105,6 +120,31 @@
             }
         });
     }];
+}
+
+- (BOOL)restoreLocalVideo {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [paths objectAtIndex:0];
+    NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:docDir];
+    for (NSString *fileName in files) {
+        NSURL *filePAth = [NSURL URLWithString:[docDir stringByAppendingPathComponent:fileName]];
+        if ([fileName containsString:@"FinalVideo"]) {
+            self.hasCombined = YES;
+            self.mergeFilePath = filePAth;
+        }
+        [self.videoPathArray addObject:filePAth];
+    }
+    return files.count > 0;
+}
+
+- (BOOL)clearLocalVideos {
+    for (NSURL *filePath in self.videoPathArray) {
+        BOOL isSuccess = [[NSFileManager defaultManager] removeItemAtPath:filePath.absoluteString error:nil];
+        if (!isSuccess) {
+            NSLog(@"%@ is delete fail", filePath);
+        }
+    }
+    return YES;
 }
 
 @end

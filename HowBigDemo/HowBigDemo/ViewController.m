@@ -13,6 +13,10 @@
 #import "GPUCameraDemoViewController.h"
 #import <objc/runtime.h>
 
+
+#import "VideoManagerCenter.h"
+#import "VideoEditViewController.h"
+
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIButton *jsBtn;
@@ -29,6 +33,26 @@
     
     self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession", @"美颜功能"];
     self.selectorArray = @[@"jsBtnAction:", @"urlInterceptedAction:", @"urlSessionAction:",  @"useGPUAction:"];
+    
+    BOOL hadLocalVideo = [[VideoManagerCenter shareInstance] restoreLocalVideo];
+    if (hadLocalVideo) {
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"还有上次编辑视频，是否继续" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *OKAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            VideoEditViewController *editVC = [[VideoEditViewController alloc] init];
+            editVC.videosArray = [VideoManagerCenter shareInstance].videoPathArray;
+            [self.navigationController pushViewController:editVC animated:YES];
+        }];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [[VideoManagerCenter shareInstance] clearLocalVideos];
+            
+        }];
+        
+        [alertVC addAction:OKAction];
+        [alertVC addAction:cancelAction];
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }
     
     // KVO
     // 在我们对某个对象完成监听的注册后，编译器会修改监听对象（上文中的tableView）的isa指针，让这个指针指向一个新生成的中间类。

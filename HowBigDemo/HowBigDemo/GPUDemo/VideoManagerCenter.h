@@ -10,8 +10,18 @@
 
 @interface VideoManagerCenter : NSObject
 
+@property(nonatomic, readonly, strong)NSMutableArray *videoPathArray;
+
+@property(nonatomic, readonly)BOOL hasCombined;
+
+@property(nonatomic, strong)NSURL *mergeFilePath;
+
 + (VideoManagerCenter *)shareInstance;
 
 - (void)compressionSession:(NSArray *)fileURLs completeHandler:(void(^)(NSURL *mergeFileFath))block;
+
+- (BOOL)restoreLocalVideo;
+
+- (BOOL)clearLocalVideos;
 
 @end
