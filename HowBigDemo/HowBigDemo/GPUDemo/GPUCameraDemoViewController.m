@@ -155,7 +155,7 @@
         [self.fileURLArrays addObject:self.movieURL];
     }
     //设置写入地址
-    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/LiveMovied-%d.mp4", self.fileURLArrays.count]];
+    NSString *pathToMovie = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/LiveMovied-%d.m4v", self.fileURLArrays.count]];
     self.movieURL = [NSURL fileURLWithPath:pathToMovie];
     
     self.movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:self.movieURL size:CGSizeMake(self.view.bounds.size.width + 1, self.view.bounds.size.height + 1)];

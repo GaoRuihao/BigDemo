@@ -71,7 +71,11 @@
                                                                         preferredTrackID:kCMPersistentTrackID_Invalid];
     
     for (int i = 0; i < fileURLs.count; i++) {
-        AVURLAsset *asset = [[AVURLAsset alloc]initWithURL:fileURLs[i] options:nil];
+        NSFileManager *filemr = [NSFileManager defaultManager];
+        if ([filemr fileExistsAtPath:[fileURLs[i] absoluteString]]) {
+            NSLog(@"");
+        }
+        AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:fileURLs[i] options:nil];
         AVAssetTrack *assetTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
         
         AVAssetTrack *audioAsset = [[asset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
@@ -123,11 +127,12 @@
 }
 
 - (BOOL)restoreLocalVideo {
+    [self.videoPathArray removeAllObjects];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
     NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:docDir];
     for (NSString *fileName in files) {
-        NSURL *filePAth = [NSURL URLWithString:[docDir stringByAppendingPathComponent:fileName]];
+        NSURL *filePAth = [NSURL fileURLWithPath:[docDir stringByAppendingPathComponent:fileName]];
         if ([fileName containsString:@"FinalVideo"]) {
             self.hasCombined = YES;
             self.mergeFilePath = filePAth;
@@ -139,11 +144,13 @@
 
 - (BOOL)clearLocalVideos {
     for (NSURL *filePath in self.videoPathArray) {
-        BOOL isSuccess = [[NSFileManager defaultManager] removeItemAtPath:filePath.absoluteString error:nil];
+        BOOL isSuccess = [[NSFileManager defaultManager] removeItemAtURL:filePath error:nil];
         if (!isSuccess) {
             NSLog(@"%@ is delete fail", filePath);
         }
     }
+    self.hasCombined = NO;
+    self.mergeFilePath = nil;
     return YES;
 }
 

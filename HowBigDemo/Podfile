@@ -3,6 +3,6 @@ use_frameworks!
 
 target "HowBigDemo" do
     pod 'GPUImage'
-    pod 'SVProgressHUD'
+    pod 'MBProgressHUD'
 end
 

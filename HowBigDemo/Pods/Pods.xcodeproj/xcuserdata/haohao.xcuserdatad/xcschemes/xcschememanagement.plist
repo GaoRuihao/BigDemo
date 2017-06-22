@@ -9,12 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-HowBigDemo.xcscheme</key>
+		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SVProgressHUD.xcscheme</key>
+		<key>Pods-HowBigDemo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,12 +27,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>363F122E7E5BBD0DB7D7F25198DEC37E</key>
+		<key>41FA54D12162DAD51D02FC58A2CD5034</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>408A28C43BF8304687834E785407BF9D</key>
+		<key>AEE9BD3B588E301A7EAEB916A2CD129C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

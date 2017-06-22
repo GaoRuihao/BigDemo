@@ -13,15 +13,15 @@
         <scene sceneID="aOu-BR-tP1">
             <objects>
                 <navigationController storyboardIdentifier="RootNavigationVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FAc-1r-5it" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="asV-78-SjH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="asV-78-SjH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="1" green="0.2536705594" blue="0.35546987340000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="barTintColor">
-                                <color key="value" red="1" green="0.2536705594" blue="0.35546987340000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="SBarTintColor">
                                 <color key="value" red="0.17254901960784313" green="0.72549019607843135" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
