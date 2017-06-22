@@ -44,7 +44,7 @@
     [self.view addSubview:self.playBtn];
     
     UITapGestureRecognizer *playGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playGesture:)];
-    [self.view addGestureRecognizer:playGesture];
+    [self.filterView addGestureRecognizer:playGesture];
     
     VideoManagerCenter *videoManager = [VideoManagerCenter shareInstance];
     if (videoManager.hasCombined) {
@@ -112,7 +112,6 @@
 }
 
 - (void)setupPlayerWithPath:(NSURL *)filePath {
-    
     AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
     playerLayer.frame = self.view.bounds;
     playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
@@ -131,10 +130,10 @@
 #pragma mark - Gesture
 - (void)playGesture:(id)sender {
     if (self.player.timeControlStatus == AVPlayerTimeControlStatusPlaying) {
-        [self.player pause];
+        [self.movieFile endProcessing];
         self.playBtn.hidden = NO;
     } else {
-        [self.player play];
+        [self.movieFile startProcessing];
         self.playBtn.hidden = YES;
     }
 }
@@ -155,7 +154,7 @@
         [self.pixellateFilter addTarget:movieWriter];
         
         movieWriter.shouldPassthroughAudio = YES;
-        //    movieFile.audioEncodingTarget = movieWriter;
+        self.movieFile.audioEncodingTarget = movieWriter;
         [self.movieFile enableSynchronizedEncodingUsingMovieWriter:movieWriter];
         [movieWriter startRecording];
         

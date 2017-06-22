@@ -11,13 +11,23 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "VideoEditViewController.h"
 
-@interface GPUCameraDemoViewController ()
+typedef NS_ENUM(NSInteger, CameraManagerFlashMode) {
+    CameraManagerFlashModeAuto, /**<自动*/
+    
+    CameraManagerFlashModeOff, /**<关闭*/
+    
+    CameraManagerFlashModeOn /**<打开*/
+};
 
-@property(nonatomic, strong)GPUImageVideoCamera *videoCamera;
-@property(nonatomic, strong)GPUImageFilter *filter;
+@interface GPUCameraDemoViewController ()<CAAnimationDelegate>
+
+@property(nonatomic, strong)GPUImageVideoCamera *videoCamera;       //GPU相机
+@property(nonatomic, strong)GPUImageFilter *filter;     // 滤镜
 @property(nonatomic, strong)NSURL *movieURL;
-@property(nonatomic, strong)GPUImageMovieWriter *movieWriter;
-@property(nonatomic, strong)GPUImageView *filterView;
+@property(nonatomic, strong)GPUImageMovieWriter *movieWriter;   // 沙盒输出
+@property(nonatomic, strong)GPUImageView *filterView;       //UI界面
+
+@property(nonatomic, strong)CALayer *focusLayer;        //聚焦层
 
 @property(nonatomic, strong)NSMutableArray *fileURLArrays;
 
@@ -49,6 +59,7 @@
     [self resetVideoWrite];
     
     [self setupViews];
+    [self setfocusImage:[UIImage imageNamed:@"camera_focus_bg"]];
     self.fileURLArrays = [NSMutableArray array];
     
     //延迟2秒开始
@@ -92,7 +103,28 @@
     [self.filterView addSubview:nextBtn];
 }
 
-
+//设置聚焦图片
+- (void)setfocusImage:(UIImage *)focusImage {
+    if (!focusImage) return;
+    
+    if (!_focusLayer) {
+        //增加tap手势，用于聚焦及曝光
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(focus:)];
+        [self.filterView addGestureRecognizer:tap];
+        //增加pinch手势，用于调整焦距
+//        UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(focusDisdance:)];
+//        [self.filterView addGestureRecognizer:pinch];
+//        pinch.delegate = self;
+    }
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, focusImage.size.width, focusImage.size.height)];
+    imageView.image = focusImage;
+    CALayer *layer = imageView.layer;
+    layer.hidden = YES;
+    [self.filterView.layer addSublayer:layer];
+    _focusLayer = layer;
+    
+}
 
 - (void)turnCameraBtnAction:(UIButton *)sender {
     [UIView animateWithDuration:0.3 animations:^{
@@ -167,6 +199,73 @@
     [self.filter addTarget:self.movieWriter];
     
     
+}
+
+//对焦方法
+- (void)focus:(UITapGestureRecognizer *)tap {
+    self.filterView.userInteractionEnabled = NO;
+    CGPoint touchPoint = [tap locationInView:tap.view];
+    // CGContextRef *touchContext = UIGraphicsGetCurrentContext();
+    [self layerAnimationWithPoint:touchPoint];
+    /**
+     *下面是照相机焦点坐标轴和屏幕坐标轴的映射问题，这个坑困惑了我好久，花了各种方案来解决这个问题，以下是最简单的解决方案也是最准确的坐标转换方式
+     */
+    if(self.videoCamera.cameraPosition == AVCaptureDevicePositionBack){
+        touchPoint = CGPointMake( touchPoint.y /tap.view.bounds.size.height ,1-touchPoint.x/tap.view.bounds.size.width);
+    }
+    else
+        touchPoint = CGPointMake(touchPoint.y /tap.view.bounds.size.height ,touchPoint.x/tap.view.bounds.size.width);
+    /*以下是相机的聚焦和曝光设置，前置不支持聚焦但是可以曝光处理，后置相机两者都支持，下面的方法是通过点击一个点同时设置聚焦和曝光，当然根据需要也可以分开进行处理
+     */
+    if([self.videoCamera.inputCamera isExposurePointOfInterestSupported] && [self.videoCamera.inputCamera isExposureModeSupported:AVCaptureExposureModeContinuousAutoExposure]) {
+        NSError *error;
+        if ([self.videoCamera.inputCamera lockForConfiguration:&error]) {
+            [self.videoCamera.inputCamera setExposurePointOfInterest:touchPoint];
+            [self.videoCamera.inputCamera setExposureMode:AVCaptureExposureModeContinuousAutoExposure];
+            if ([self.videoCamera.inputCamera isFocusPointOfInterestSupported] && [self.videoCamera.inputCamera isFocusModeSupported:AVCaptureFocusModeAutoFocus]) {
+                [self.videoCamera.inputCamera setFocusPointOfInterest:touchPoint];
+                [self.videoCamera.inputCamera setFocusMode:AVCaptureFocusModeAutoFocus];
+            }
+            [self.videoCamera.inputCamera unlockForConfiguration];
+        } else {
+            NSLog(@"ERROR = %@", error);
+        }
+    }
+}
+
+//对焦动画
+- (void)layerAnimationWithPoint:(CGPoint)point {
+    if (_focusLayer) {
+        ///聚焦点聚焦动画设置
+        CALayer *focusLayer = _focusLayer;
+        focusLayer.hidden = NO;
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        [focusLayer setPosition:point];
+        focusLayer.transform = CATransform3DMakeScale(2.0f,2.0f,1.0f);
+        [CATransaction commit];
+        
+        CABasicAnimation *animation = [ CABasicAnimation animationWithKeyPath: @"transform" ];
+        animation.toValue = [ NSValue valueWithCATransform3D: CATransform3DMakeScale(1.0f,1.0f,1.0f)];
+        animation.delegate = self;
+        animation.duration = 0.3f;
+        animation.repeatCount = 1;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        [focusLayer addAnimation: animation forKey:@"animation"];
+    }
+}
+
+//动画的delegate方法
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    //    1秒钟延时
+    [self performSelector:@selector(focusLayerNormal) withObject:self afterDelay:0.0f];
+}
+
+//focusLayer回到初始化状态
+- (void)focusLayerNormal {
+    self.filterView.userInteractionEnabled = YES;
+    _focusLayer.hidden = YES;
 }
 
 /*
