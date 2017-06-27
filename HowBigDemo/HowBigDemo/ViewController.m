@@ -12,6 +12,7 @@
 #import "RequestViewController.h"
 #import "GPUCameraDemoViewController.h"
 #import <objc/runtime.h>
+#import "LogicTest.h"
 
 
 #import "VideoManagerCenter.h"
@@ -66,6 +67,10 @@
     NSLog(@"class method: %@", self.tableView.class);
     NSLog(@"description method: %@", self.tableView);
     NSLog(@"use runtime to get class %@", object_getClass(self.tableView));
+    
+    // 测试指针
+    LogicTest *test = [[LogicTest alloc] init];
+    [test testPointer];
     
 }
 
