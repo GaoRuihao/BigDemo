@@ -27,4 +27,23 @@
     *string = @"run doSomething method";
 }
 
+#pragma mark - RunLoop
++ (void)testThreadEntryPoint:(id)__unused object {
+    @autoreleasepool {
+        [[NSThread currentThread] setName:@"testThreadDemo"];
+        NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+        [runLoop addPort:[NSMachPort port] forMode:NSDefaultRunLoopMode];
+        [runLoop run];
+    }
+}
+
++ (NSThread *)creatTestThread {
+    static NSThread *testThread = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        testThread = [[NSThread alloc] initWithTarget:self selector:@selector(testThreadEntryPoint:) object:nil];
+    });
+    return testThread;
+}
+
 @end

@@ -13,6 +13,7 @@
 #import "GPUCameraDemoViewController.h"
 #import <objc/runtime.h>
 #import "LogicTest.h"
+#import "LoadImageViewController.h"
 
 
 #import "VideoManagerCenter.h"
@@ -32,8 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession", @"美颜功能"];
-    self.selectorArray = @[@"jsBtnAction:", @"urlInterceptedAction:", @"urlSessionAction:",  @"useGPUAction:"];
+    self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession", @"美颜功能", @"tableViewCell加载大图"];
+    self.selectorArray = @[@"jsBtnAction:", @"urlInterceptedAction:", @"urlSessionAction:",  @"useGPUAction:", @"loadImageAction:"];
     
     BOOL hadLocalVideo = [[VideoManagerCenter shareInstance] restoreLocalVideo];
     if (hadLocalVideo) {
@@ -138,6 +139,11 @@
 - (void)useGPUAction:(id)sender {
     GPUCameraDemoViewController *GPUCameraVC = [[GPUCameraDemoViewController alloc] init];
     [self.navigationController pushViewController:GPUCameraVC animated:YES];
+}
+
+- (void)loadImageAction:(id)sender {
+    LoadImageViewController *vc = [[LoadImageViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
