@@ -12,4 +12,6 @@
 
 - (void)testPointer;
 
++ (void)setAppearence;
+
 @end

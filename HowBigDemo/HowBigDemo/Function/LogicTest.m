@@ -27,6 +27,11 @@
     *string = @"run doSomething method";
 }
 
+#pragma mark - AppearenceSetting
++ (void)setAppearence {
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+}
+
 #pragma mark - RunLoop
 + (void)testThreadEntryPoint:(id)__unused object {
     @autoreleasepool {

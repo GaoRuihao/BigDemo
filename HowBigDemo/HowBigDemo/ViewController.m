@@ -14,6 +14,7 @@
 #import <objc/runtime.h>
 #import "LogicTest.h"
 #import "LoadImageViewController.h"
+#import "ShowImageViewController.h"
 
 
 #import "VideoManagerCenter.h"
@@ -34,7 +35,7 @@
     [super viewDidLoad];
     
     self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession", @"美颜功能", @"tableViewCell加载大图"];
-    self.selectorArray = @[@"jsBtnAction:", @"urlInterceptedAction:", @"urlSessionAction:",  @"useGPUAction:", @"loadImageAction:"];
+    self.selectorArray = @[@"RootViewController", @"MainViewController", @"RequestViewController",  @"GPUCameraDemoViewController", @"LoadImageViewController"];
     
     BOOL hadLocalVideo = [[VideoManagerCenter shareInstance] restoreLocalVideo];
     if (hadLocalVideo) {
@@ -111,39 +112,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *aSelectorName = self.selectorArray[indexPath.row];
-    [self performSelector:NSSelectorFromString(aSelectorName) withObject:nil afterDelay:0.0];
-}
-
-#pragma mark - Action
-- (void)jsBtnAction:(id)sender {
-    RootViewController *rootVC = [[RootViewController alloc] init];
-//    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:rootVC];
-//    [self presentViewController:navi animated:YES completion:nil];
-    [self.navigationController pushViewController:rootVC animated:YES];
-}
-
-- (IBAction)urlInterceptedAction:(id)sender {
-    MainViewController *mainVC = [[MainViewController alloc] init];
-    [self.navigationController pushViewController:mainVC animated:YES];
-//    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:mainVC];
-//    [self presentViewController:navi animated:YES completion:nil];
-}
-
-- (void)urlSessionAction:(id)sender {
-    RequestViewController *mainVC = [[RequestViewController alloc] init];
-    [self.navigationController pushViewController:mainVC animated:YES];
-}
-
-- (void)useGPUAction:(id)sender {
-    GPUCameraDemoViewController *GPUCameraVC = [[GPUCameraDemoViewController alloc] init];
-    [self.navigationController pushViewController:GPUCameraVC animated:YES];
-}
-
-- (void)loadImageAction:(id)sender {
-    LoadImageViewController *vc = [[LoadImageViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    NSString *className = self.selectorArray[indexPath.row];
+    Class class = NSClassFromString(className);
+    if (class) {
+        UIViewController *ctrl = class.new;
+        ctrl.title = self.functionArray[indexPath.row];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

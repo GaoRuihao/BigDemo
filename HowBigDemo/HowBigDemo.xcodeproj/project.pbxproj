@@ -45,6 +45,7 @@
 		A09235101EE1609C00EB7927 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = A09234FC1EE1609C00EB7927 /* test.js */; };
 		A09397FA1EF76A5E00FC147A /* VideoManagerCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A09397F91EF76A5E00FC147A /* VideoManagerCenter.m */; };
 		A09398001EFA0CCC00FC147A /* FilterArray.m in Sources */ = {isa = PBXBuildFile; fileRef = A09397FF1EFA0CCB00FC147A /* FilterArray.m */; };
+		A0B089F11F063D5F001A16E2 /* ShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B089F01F063D5F001A16E2 /* ShowImageViewController.m */; };
 		A0CD72911F04D3BC00275449 /* GHHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CD72901F04D3BC00275449 /* GHHTableViewController.m */; };
 		A0CD72941F04EEF800275449 /* spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = A0CD72931F04EEF800275449 /* spaceship.png */; };
 		A0CD72971F04F9C500275449 /* LoadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CD72961F04F9C500275449 /* LoadImageViewController.m */; };
@@ -140,6 +141,8 @@
 		A09397F91EF76A5E00FC147A /* VideoManagerCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoManagerCenter.m; path = GPUDemo/VideoManagerCenter.m; sourceTree = "<group>"; };
 		A09397FE1EFA0CCB00FC147A /* FilterArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilterArray.h; path = GPUDemo/FilterArray.h; sourceTree = "<group>"; };
 		A09397FF1EFA0CCB00FC147A /* FilterArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterArray.m; path = GPUDemo/FilterArray.m; sourceTree = "<group>"; };
+		A0B089EF1F063D5F001A16E2 /* ShowImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowImageViewController.h; path = WaterFlow/ShowImageViewController.h; sourceTree = "<group>"; };
+		A0B089F01F063D5F001A16E2 /* ShowImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowImageViewController.m; path = WaterFlow/ShowImageViewController.m; sourceTree = "<group>"; };
 		A0CD728F1F04D3BC00275449 /* GHHTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GHHTableViewController.h; path = WaterFlow/GHHTableViewController.h; sourceTree = "<group>"; };
 		A0CD72901F04D3BC00275449 /* GHHTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GHHTableViewController.m; path = WaterFlow/GHHTableViewController.m; sourceTree = "<group>"; };
 		A0CD72931F04EEF800275449 /* spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceship.png; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				A06CDE141EF1349000DFAD00 /* WawterFlowViewController.m */,
 				A0CD728F1F04D3BC00275449 /* GHHTableViewController.h */,
 				A0CD72901F04D3BC00275449 /* GHHTableViewController.m */,
+				A0B089EF1F063D5F001A16E2 /* ShowImageViewController.h */,
+				A0B089F01F063D5F001A16E2 /* ShowImageViewController.m */,
 			);
 			name = UITest;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 				A0EF16BB1EF2609A0026F7DE /* UINavigationBar+Addition.m in Sources */,
 				A0EF16B61EF235D70026F7DE /* LunchMovieViewController.m in Sources */,
 				A092350E1EE1609C00EB7927 /* SecondViewController.m in Sources */,
+				A0B089F11F063D5F001A16E2 /* ShowImageViewController.m in Sources */,
 				A05DE2991EE8F15E0056B1A5 /* DefaultRequest.m in Sources */,
 				A006BFDC1F020CED0023C7C3 /* LogicTest.m in Sources */,
 				A0CD72911F04D3BC00275449 /* GHHTableViewController.m in Sources */,
