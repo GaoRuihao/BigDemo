@@ -100,10 +100,10 @@ static CGFloat CELL_HEIGHT = 135.f;
     
     
     //干掉contentView上面的子控件!! 节约内存!!
-    for (NSInteger i = 1; i <= 5; i++) {
-        //干掉contentView 上面的所有子控件!!
-        [[cell.contentView viewWithTag:i] removeFromSuperview];
-    }
+//    for (NSInteger i = 1; i <= 5; i++) {
+//        //干掉contentView 上面的所有子控件!!
+//        [[cell.contentView viewWithTag:i] removeFromSuperview];
+//    }
     //添加文字
     [cell addlabel:cell indexPath:indexPath];
     

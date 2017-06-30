@@ -4,5 +4,7 @@ use_frameworks!
 target "HowBigDemo" do
     pod 'GPUImage'
     pod 'MBProgressHUD'
+    pod 'SDWebImage'
+    pod 'MWPhotoBrowser'
 end
 
