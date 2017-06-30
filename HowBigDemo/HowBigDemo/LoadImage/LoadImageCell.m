@@ -46,15 +46,29 @@
 //加载第一张
 - (void)addImage1With:(UITableViewCell *)cell {
     //第一张
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 20, 85, 85)];
-    imageView.tag = 1;
-    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"spaceship" ofType:@"png"];
-    UIImage *image = [UIImage imageWithContentsOfFile:path1];
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.image = image;
-    [UIView transitionWithView:cell.contentView duration:0.3 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve) animations:^{
-        [cell.contentView addSubview:imageView];
-    } completion:nil];
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, 20, 85, 85)];
+//    imageView.tag = 1;
+//    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"spaceship" ofType:@"png"];
+//    UIImage *image = [UIImage imageWithContentsOfFile:path1];
+//    imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    imageView.image = image;
+//    [UIView transitionWithView:cell.contentView duration:0.3 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve) animations:^{
+//        [cell.contentView addSubview:imageView];
+//    } completion:nil];
+    
+    UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(5, 20, 85, 85)];
+    imageView2.tag = 1;
+    imageView2.contentMode = UIViewContentModeScaleAspectFit;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *path1 = [[NSBundle mainBundle] pathForResource:@"spaceship" ofType:@"png"];
+        UIImage *image2 = [UIImage imageWithContentsOfFile:path1];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageView2.image = image2;
+            [UIView transitionWithView:cell.contentView duration:0.3 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve) animations:^{
+                [cell.contentView addSubview:imageView2];
+            } completion:nil];
+        });
+    });
 }
 
 
@@ -62,28 +76,47 @@
 //加载第二张
 - (void)addImage2With:(UITableViewCell *)cell {
     //第二张
-    UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(105, 20, 85, 85)];
-    imageView1.tag = 2;
-    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"spaceship" ofType:@"png"];
-    UIImage *image1 = [UIImage imageWithContentsOfFile:path1];
-    imageView1.contentMode = UIViewContentModeScaleAspectFit;
-    imageView1.image = image1;
-    [UIView transitionWithView:cell.contentView duration:0.3 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve) animations:^{
-        [cell.contentView addSubview:imageView1];
-    } completion:nil];
+//    UIImageView *imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(105, 20, 85, 85)];
+//    imageView1.tag = 2;
+//    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"spaceship" ofType:@"png"];
+//    UIImage *image1 = [UIImage imageWithContentsOfFile:path1];
+//    imageView1.contentMode = UIViewContentModeScaleAspectFit;
+//    imageView1.image = image1;
+//    [UIView transitionWithView:cell.contentView duration:0.3 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve) animations:^{
+//        [cell.contentView addSubview:imageView1];
+//    } completion:nil];
+    
+    UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(105, 20, 85, 85)];
+    imageView2.tag = 2;
+    imageView2.contentMode = UIViewContentModeScaleAspectFit;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *path1 = [[NSBundle mainBundle] pathForResource:@"spaceship" ofType:@"png"];
+        UIImage *image2 = [UIImage imageWithContentsOfFile:path1];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageView2.image = image2;
+            [UIView transitionWithView:cell.contentView duration:0.3 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve) animations:^{
+                [cell.contentView addSubview:imageView2];
+            } completion:nil];
+        });
+    });
 }
 //加载第三张
 - (void)addImage3With:(UITableViewCell *)cell {
     //第三张
     UIImageView *imageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(200, 20, 85, 85)];
     imageView2.tag = 3;
-    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"spaceship" ofType:@"png"];
-    UIImage *image2 = [UIImage imageWithContentsOfFile:path1];
     imageView2.contentMode = UIViewContentModeScaleAspectFit;
-    imageView2.image = image2;
-    [UIView transitionWithView:cell.contentView duration:0.3 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve) animations:^{
-        [cell.contentView addSubview:imageView2];
-    } completion:nil];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *path1 = [[NSBundle mainBundle] pathForResource:@"spaceship" ofType:@"png"];
+        UIImage *image2 = [UIImage imageWithContentsOfFile:path1];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            imageView2.image = image2;
+            [UIView transitionWithView:cell.contentView duration:0.3 options:(UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionTransitionCrossDissolve) animations:^{
+                [cell.contentView addSubview:imageView2];
+            } completion:nil];
+        });
+    });
+    
 }
 
 @end

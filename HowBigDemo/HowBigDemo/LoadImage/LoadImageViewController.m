@@ -87,6 +87,7 @@ static CGFloat CELL_HEIGHT = 135.f;
 //    
 //}
 
+
 #pragma mark - <tableview>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 399;
@@ -120,11 +121,28 @@ static CGFloat CELL_HEIGHT = 135.f;
         return YES;
     }];
     
+//    [cell performSelector:@selector(addImage1With:) withObject:cell afterDelay:0.0 inModes:@[NSDefaultRunLoopMode]];
+//    [cell performSelector:@selector(addImage2With:) withObject:cell afterDelay:0.0 inModes:@[NSDefaultRunLoopMode]];
+//    [cell performSelector:@selector(addImage3With:) withObject:cell afterDelay:0.0 inModes:@[NSDefaultRunLoopMode]];
+    
 //    [ViewController addImage1With:cell];
 //    [ViewController addImage2With:cell];
 //    [ViewController addImage3With:cell];
     
+//    [cell addImage1With:cell];
+//    [cell addImage2With:cell];
+//    [cell addImage3With:cell];
+    
     return cell;
+}
+
+#pragma mark - 测试异步线程读取
+- (void)addCellTask:(LoadImageCell *)cell {
+    NSIndexPath *indexPath = [self.exampleTableView indexPathForCell:cell];
+    NSLog(@"indexPath row : %d", indexPath.row);
+    [cell addImage1With:cell];
+    [cell addImage2With:cell];
+    [cell addImage3With:cell];
 }
 
 #pragma mark - <关于RunLoop的方法>
