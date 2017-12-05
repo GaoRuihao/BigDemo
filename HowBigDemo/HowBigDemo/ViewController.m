@@ -19,6 +19,7 @@
 
 #import "VideoManagerCenter.h"
 #import "VideoEditViewController.h"
+#import "GHHMediator+ModuleAActions.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -119,7 +120,9 @@
         ctrl.title = self.functionArray[indexPath.row];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    UIViewController *viewController = [[GHHMediator Instance] JumpViewController];
+//    [self.navigationController pushViewController:viewController animated:YES];
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

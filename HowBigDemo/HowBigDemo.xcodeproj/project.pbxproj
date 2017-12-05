@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FC0C9B51FD578360094F05F /* GHHMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0C9B41FD578360094F05F /* GHHMediator.m */; };
+		3FC0C9B91FD580870094F05F /* TargetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0C9B81FD580870094F05F /* TargetManager.m */; };
+		3FC0C9BC1FD580F20094F05F /* GHHMediator+ModuleAActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0C9BB1FD580F20094F05F /* GHHMediator+ModuleAActions.m */; };
 		6853157837CEBE4BD3FFB412 /* Pods_HowBigDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E25C2DB2D409511B9E99469 /* Pods_HowBigDemo.framework */; };
 		A006BFDC1F020CED0023C7C3 /* LogicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A006BFDB1F020CED0023C7C3 /* LogicTest.m */; };
 		A050DAF11EEF82900033C519 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A050DAF01EEF82900033C519 /* UIView+Addition.m */; };
@@ -77,6 +80,12 @@
 
 /* Begin PBXFileReference section */
 		277B6A000A5EF448871935D8 /* Pods-HowBigDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowBigDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HowBigDemo/Pods-HowBigDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		3FC0C9B31FD578360094F05F /* GHHMediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GHHMediator.h; path = Mediator/GHHMediator.h; sourceTree = "<group>"; };
+		3FC0C9B41FD578360094F05F /* GHHMediator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GHHMediator.m; path = Mediator/GHHMediator.m; sourceTree = "<group>"; };
+		3FC0C9B71FD580870094F05F /* TargetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TargetManager.h; path = Mediator/Action/TargetManager.h; sourceTree = "<group>"; };
+		3FC0C9B81FD580870094F05F /* TargetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TargetManager.m; path = Mediator/Action/TargetManager.m; sourceTree = "<group>"; };
+		3FC0C9BA1FD580F20094F05F /* GHHMediator+ModuleAActions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GHHMediator+ModuleAActions.h"; path = "Mediator/GHHMediator+ModuleAActions.h"; sourceTree = "<group>"; };
+		3FC0C9BB1FD580F20094F05F /* GHHMediator+ModuleAActions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "GHHMediator+ModuleAActions.m"; path = "Mediator/GHHMediator+ModuleAActions.m"; sourceTree = "<group>"; };
 		9E25C2DB2D409511B9E99469 /* Pods_HowBigDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowBigDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF03680973216FED09DAF86 /* Pods-HowBigDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowBigDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HowBigDemo/Pods-HowBigDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A006BFDA1F020CED0023C7C3 /* LogicTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogicTest.h; path = Function/LogicTest.h; sourceTree = "<group>"; };
@@ -198,6 +207,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3FC0C9B21FD577AE0094F05F /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				3FC0C9B61FD580400094F05F /* Action */,
+				3FC0C9B31FD578360094F05F /* GHHMediator.h */,
+				3FC0C9B41FD578360094F05F /* GHHMediator.m */,
+				3FC0C9BA1FD580F20094F05F /* GHHMediator+ModuleAActions.h */,
+				3FC0C9BB1FD580F20094F05F /* GHHMediator+ModuleAActions.m */,
+			);
+			name = Mediator;
+			sourceTree = "<group>";
+		};
+		3FC0C9B61FD580400094F05F /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				3FC0C9B71FD580870094F05F /* TargetManager.h */,
+				3FC0C9B81FD580870094F05F /* TargetManager.m */,
+			);
+			name = Action;
+			sourceTree = "<group>";
+		};
 		58A487E0BE071E8A276B6CFD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +323,7 @@
 		A09234AA1EE1594400EB7927 /* HowBigDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3FC0C9B21FD577AE0094F05F /* Mediator */,
 				A0CD72921F04EEDE00275449 /* LoadImage */,
 				A006BFD91F0209A30023C7C3 /* Function */,
 				A0EF16BF1EF26AAD0026F7DE /* GPUDemo */,
@@ -504,7 +535,7 @@
 				TargetAttributes = {
 					A09234A71EE1594400EB7927 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 26676U96B8;
+						DevelopmentTeam = R75T6G78R3;
 						ProvisioningStyle = Automatic;
 					};
 					A09234C01EE1594400EB7927 = {
@@ -589,9 +620,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HowBigDemo/Pods-HowBigDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -604,13 +646,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HowBigDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C05FCAD1A4FAD0A331C79F1F /* [CP] Copy Pods Resources */ = {
@@ -641,6 +686,7 @@
 				A0EF16B61EF235D70026F7DE /* LunchMovieViewController.m in Sources */,
 				A092350E1EE1609C00EB7927 /* SecondViewController.m in Sources */,
 				A0B089F11F063D5F001A16E2 /* ShowImageViewController.m in Sources */,
+				3FC0C9BC1FD580F20094F05F /* GHHMediator+ModuleAActions.m in Sources */,
 				A05DE2991EE8F15E0056B1A5 /* DefaultRequest.m in Sources */,
 				A006BFDC1F020CED0023C7C3 /* LogicTest.m in Sources */,
 				A0CD72911F04D3BC00275449 /* GHHTableViewController.m in Sources */,
@@ -650,6 +696,7 @@
 				A05DE2921EE50B490056B1A5 /* WKWebViewController.m in Sources */,
 				A09235011EE1609C00EB7927 /* HighchartsWebViewController.m in Sources */,
 				A09234B01EE1594400EB7927 /* AppDelegate.m in Sources */,
+				3FC0C9B91FD580870094F05F /* TargetManager.m in Sources */,
 				A050DAF11EEF82900033C519 /* UIView+Addition.m in Sources */,
 				A05DE2911EE50B490056B1A5 /* WebViewController.m in Sources */,
 				A06CDE151EF1349000DFAD00 /* WawterFlowViewController.m in Sources */,
@@ -661,6 +708,7 @@
 				A092350C1EE1609C00EB7927 /* RootViewController.m in Sources */,
 				A0EF16BE1EF26AA40026F7DE /* GPUCameraDemoViewController.m in Sources */,
 				A09398001EFA0CCC00FC147A /* FilterArray.m in Sources */,
+				3FC0C9B51FD578360094F05F /* GHHMediator.m in Sources */,
 				A0CD729A1F04FC9000275449 /* LoadImageCell.m in Sources */,
 				A092350A1EE1609C00EB7927 /* OCCallJSViewController.m in Sources */,
 				A09235071EE1609C00EB7927 /* JSCallOCViewController.m in Sources */,
@@ -815,7 +863,7 @@
 			baseConfigurationReference = 277B6A000A5EF448871935D8 /* Pods-HowBigDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 26676U96B8;
+				DEVELOPMENT_TEAM = R75T6G78R3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HowBigDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = HowBigDemo/Info.plist;
@@ -831,7 +879,7 @@
 			baseConfigurationReference = 9FF03680973216FED09DAF86 /* Pods-HowBigDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 26676U96B8;
+				DEVELOPMENT_TEAM = R75T6G78R3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = HowBigDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = HowBigDemo/Info.plist;
