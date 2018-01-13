@@ -15,11 +15,13 @@
 #import "LogicTest.h"
 #import "LoadImageViewController.h"
 #import "ShowImageViewController.h"
-
+#import "LumiRequest.h"
 
 #import "VideoManagerCenter.h"
 #import "VideoEditViewController.h"
 #import "GHHMediator+ModuleAActions.h"
+
+#import "DeviceModel.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -75,6 +77,18 @@
     LogicTest *test = [[LogicTest alloc] init];
     [test testPointer];
     
+    //测试请求
+    LumiRequest *request = [[LumiRequest alloc] init];
+    NSMutableDictionary *paramer = [NSMutableDictionary dictionary];
+    [paramer setObject:@"lumi.158d00020155d6" forKey:@"did"];
+    [request postWithURL:@"/dev/ircode/query/list" parmas:paramer completeHandle:^(NSDictionary *response, NSError *error) {
+        NSLog(@"稳得一批");
+    }];
+    
+    
+    DeviceModel *model = [[DeviceModel alloc] init];
+    
+    [model insertIntoDB];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,7 +134,7 @@
         ctrl.title = self.functionArray[indexPath.row];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
-//    UIViewController *viewController = [[GHHMediator Instance] JumpViewController];
+    UIViewController *viewController = [[GHHMediator Instance] JumpViewController];
 //    [self.navigationController pushViewController:viewController animated:YES];
 //    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

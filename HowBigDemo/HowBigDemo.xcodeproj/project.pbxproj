@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F72B93F1FF38EDC00CA20E1 /* LumiRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F72B93E1FF38EDC00CA20E1 /* LumiRequest.m */; };
 		3FC0C9B51FD578360094F05F /* GHHMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0C9B41FD578360094F05F /* GHHMediator.m */; };
 		3FC0C9B91FD580870094F05F /* TargetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0C9B81FD580870094F05F /* TargetManager.m */; };
 		3FC0C9BC1FD580F20094F05F /* GHHMediator+ModuleAActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0C9BB1FD580F20094F05F /* GHHMediator+ModuleAActions.m */; };
+		3FD4583A2009B7CF00306491 /* DeviceModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3FD458392009B7CF00306491 /* DeviceModel.mm */; };
+		3FD458412009E78D00306491 /* DeviceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD458402009E78D00306491 /* DeviceViewModel.m */; };
 		6853157837CEBE4BD3FFB412 /* Pods_HowBigDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E25C2DB2D409511B9E99469 /* Pods_HowBigDemo.framework */; };
 		A006BFDC1F020CED0023C7C3 /* LogicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A006BFDB1F020CED0023C7C3 /* LogicTest.m */; };
 		A050DAF11EEF82900033C519 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A050DAF01EEF82900033C519 /* UIView+Addition.m */; };
@@ -80,12 +83,18 @@
 
 /* Begin PBXFileReference section */
 		277B6A000A5EF448871935D8 /* Pods-HowBigDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowBigDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HowBigDemo/Pods-HowBigDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		3F72B93D1FF38EDC00CA20E1 /* LumiRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LumiRequest.h; path = Network/LumiRequest.h; sourceTree = "<group>"; };
+		3F72B93E1FF38EDC00CA20E1 /* LumiRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LumiRequest.m; path = Network/LumiRequest.m; sourceTree = "<group>"; };
 		3FC0C9B31FD578360094F05F /* GHHMediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GHHMediator.h; path = Mediator/GHHMediator.h; sourceTree = "<group>"; };
 		3FC0C9B41FD578360094F05F /* GHHMediator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GHHMediator.m; path = Mediator/GHHMediator.m; sourceTree = "<group>"; };
 		3FC0C9B71FD580870094F05F /* TargetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TargetManager.h; path = Mediator/Action/TargetManager.h; sourceTree = "<group>"; };
 		3FC0C9B81FD580870094F05F /* TargetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TargetManager.m; path = Mediator/Action/TargetManager.m; sourceTree = "<group>"; };
 		3FC0C9BA1FD580F20094F05F /* GHHMediator+ModuleAActions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GHHMediator+ModuleAActions.h"; path = "Mediator/GHHMediator+ModuleAActions.h"; sourceTree = "<group>"; };
 		3FC0C9BB1FD580F20094F05F /* GHHMediator+ModuleAActions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "GHHMediator+ModuleAActions.m"; path = "Mediator/GHHMediator+ModuleAActions.m"; sourceTree = "<group>"; };
+		3FD458382009B7CF00306491 /* DeviceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeviceModel.h; path = DataBase/DeviceModel.h; sourceTree = "<group>"; };
+		3FD458392009B7CF00306491 /* DeviceModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = DeviceModel.mm; path = DataBase/DeviceModel.mm; sourceTree = "<group>"; };
+		3FD4583F2009E78D00306491 /* DeviceViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceViewModel.h; sourceTree = "<group>"; };
+		3FD458402009E78D00306491 /* DeviceViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceViewModel.m; sourceTree = "<group>"; };
 		9E25C2DB2D409511B9E99469 /* Pods_HowBigDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowBigDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF03680973216FED09DAF86 /* Pods-HowBigDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowBigDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HowBigDemo/Pods-HowBigDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A006BFDA1F020CED0023C7C3 /* LogicTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogicTest.h; path = Function/LogicTest.h; sourceTree = "<group>"; };
@@ -207,6 +216,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3F284E111FFCCF2600CDA8F3 /* UDP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UDP;
+			sourceTree = "<group>";
+		};
+		3F72B93C1FF3801D00CA20E1 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				3F284E111FFCCF2600CDA8F3 /* UDP */,
+				3F72B93D1FF38EDC00CA20E1 /* LumiRequest.h */,
+				3F72B93E1FF38EDC00CA20E1 /* LumiRequest.m */,
+			);
+			name = NetWork;
+			sourceTree = "<group>";
+		};
 		3FC0C9B21FD577AE0094F05F /* Mediator */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +252,17 @@
 				3FC0C9B81FD580870094F05F /* TargetManager.m */,
 			);
 			name = Action;
+			sourceTree = "<group>";
+		};
+		3FD458372009B78900306491 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				3FD458382009B7CF00306491 /* DeviceModel.h */,
+				3FD458392009B7CF00306491 /* DeviceModel.mm */,
+				3FD4583F2009E78D00306491 /* DeviceViewModel.h */,
+				3FD458402009E78D00306491 /* DeviceViewModel.m */,
+			);
+			name = DataBase;
 			sourceTree = "<group>";
 		};
 		58A487E0BE071E8A276B6CFD /* Pods */ = {
@@ -323,6 +360,8 @@
 		A09234AA1EE1594400EB7927 /* HowBigDemo */ = {
 			isa = PBXGroup;
 			children = (
+				3FD458372009B78900306491 /* DataBase */,
+				3F72B93C1FF3801D00CA20E1 /* NetWork */,
 				3FC0C9B21FD577AE0094F05F /* Mediator */,
 				A0CD72921F04EEDE00275449 /* LoadImage */,
 				A006BFD91F0209A30023C7C3 /* Function */,
@@ -621,19 +660,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HowBigDemo/Pods-HowBigDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/WCDB/WCDB.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDB.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -683,12 +728,14 @@
 				A05DE28F1EE50B490056B1A5 /* MainViewController.m in Sources */,
 				A05DE2951EE530480056B1A5 /* UIScrollView+Additions.m in Sources */,
 				A0EF16BB1EF2609A0026F7DE /* UINavigationBar+Addition.m in Sources */,
+				3FD4583A2009B7CF00306491 /* DeviceModel.mm in Sources */,
 				A0EF16B61EF235D70026F7DE /* LunchMovieViewController.m in Sources */,
 				A092350E1EE1609C00EB7927 /* SecondViewController.m in Sources */,
 				A0B089F11F063D5F001A16E2 /* ShowImageViewController.m in Sources */,
 				3FC0C9BC1FD580F20094F05F /* GHHMediator+ModuleAActions.m in Sources */,
 				A05DE2991EE8F15E0056B1A5 /* DefaultRequest.m in Sources */,
 				A006BFDC1F020CED0023C7C3 /* LogicTest.m in Sources */,
+				3FD458412009E78D00306491 /* DeviceViewModel.m in Sources */,
 				A0CD72911F04D3BC00275449 /* GHHTableViewController.m in Sources */,
 				A09234B31EE1594400EB7927 /* ViewController.m in Sources */,
 				A0CD72971F04F9C500275449 /* LoadImageViewController.m in Sources */,
@@ -696,6 +743,7 @@
 				A05DE2921EE50B490056B1A5 /* WKWebViewController.m in Sources */,
 				A09235011EE1609C00EB7927 /* HighchartsWebViewController.m in Sources */,
 				A09234B01EE1594400EB7927 /* AppDelegate.m in Sources */,
+				3F72B93F1FF38EDC00CA20E1 /* LumiRequest.m in Sources */,
 				3FC0C9B91FD580870094F05F /* TargetManager.m in Sources */,
 				A050DAF11EEF82900033C519 /* UIView+Addition.m in Sources */,
 				A05DE2911EE50B490056B1A5 /* WebViewController.m in Sources */,

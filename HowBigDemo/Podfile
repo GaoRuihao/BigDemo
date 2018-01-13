@@ -6,5 +6,8 @@ target "HowBigDemo" do
     pod 'MBProgressHUD'
     pod 'SDWebImage'
     pod 'MWPhotoBrowser'
+    pod 'AFNetworking'
+    pod 'CocoaAsyncSocket'
+    pod 'WCDB'
 end
 
