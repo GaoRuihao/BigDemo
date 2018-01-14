@@ -14,6 +14,9 @@
 		3FD4583A2009B7CF00306491 /* DeviceModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3FD458392009B7CF00306491 /* DeviceModel.mm */; };
 		3FD458412009E78D00306491 /* DeviceViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD458402009E78D00306491 /* DeviceViewModel.m */; };
 		6853157837CEBE4BD3FFB412 /* Pods_HowBigDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E25C2DB2D409511B9E99469 /* Pods_HowBigDemo.framework */; };
+		6F5D66C8200B8674005F8C34 /* WCDBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D66C6200B8674005F8C34 /* WCDBViewController.m */; };
+		6F5D66C9200B8674005F8C34 /* Message.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6F5D66C7200B8674005F8C34 /* Message.mm */; };
+		6F5D66CB200B8680005F8C34 /* WCDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F5D66CA200B8680005F8C34 /* WCDB.storyboard */; };
 		A006BFDC1F020CED0023C7C3 /* LogicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A006BFDB1F020CED0023C7C3 /* LogicTest.m */; };
 		A050DAF11EEF82900033C519 /* UIView+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A050DAF01EEF82900033C519 /* UIView+Addition.m */; };
 		A05DE28C1EE50B490056B1A5 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A05DE27F1EE50B490056B1A5 /* index.html */; };
@@ -95,6 +98,12 @@
 		3FD458392009B7CF00306491 /* DeviceModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = DeviceModel.mm; path = DataBase/DeviceModel.mm; sourceTree = "<group>"; };
 		3FD4583F2009E78D00306491 /* DeviceViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceViewModel.h; sourceTree = "<group>"; };
 		3FD458402009E78D00306491 /* DeviceViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceViewModel.m; sourceTree = "<group>"; };
+		6F5D66C3200B8674005F8C34 /* Message+WCTTableCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Message+WCTTableCoding.h"; sourceTree = "<group>"; };
+		6F5D66C4200B8674005F8C34 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		6F5D66C5200B8674005F8C34 /* WCDBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCDBViewController.h; sourceTree = "<group>"; };
+		6F5D66C6200B8674005F8C34 /* WCDBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCDBViewController.m; sourceTree = "<group>"; };
+		6F5D66C7200B8674005F8C34 /* Message.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Message.mm; sourceTree = "<group>"; };
+		6F5D66CA200B8680005F8C34 /* WCDB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WCDB.storyboard; sourceTree = "<group>"; };
 		9E25C2DB2D409511B9E99469 /* Pods_HowBigDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowBigDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FF03680973216FED09DAF86 /* Pods-HowBigDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowBigDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-HowBigDemo/Pods-HowBigDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A006BFDA1F020CED0023C7C3 /* LogicTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogicTest.h; path = Function/LogicTest.h; sourceTree = "<group>"; };
@@ -257,6 +266,12 @@
 		3FD458372009B78900306491 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				6F5D66CA200B8680005F8C34 /* WCDB.storyboard */,
+				6F5D66C4200B8674005F8C34 /* Message.h */,
+				6F5D66C7200B8674005F8C34 /* Message.mm */,
+				6F5D66C3200B8674005F8C34 /* Message+WCTTableCoding.h */,
+				6F5D66C5200B8674005F8C34 /* WCDBViewController.h */,
+				6F5D66C6200B8674005F8C34 /* WCDBViewController.m */,
 				3FD458382009B7CF00306491 /* DeviceModel.h */,
 				3FD458392009B7CF00306491 /* DeviceModel.mm */,
 				3FD4583F2009E78D00306491 /* DeviceViewModel.h */,
@@ -616,6 +631,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F5D66CB200B8680005F8C34 /* WCDB.storyboard in Resources */,
 				A0EF16B81EF2394C0026F7DE /* qidong.mp4 in Resources */,
 				A09235001EE1609C00EB7927 /* HighchartsView.html in Resources */,
 				A09235101EE1609C00EB7927 /* test.js in Resources */,
@@ -726,6 +742,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A05DE28F1EE50B490056B1A5 /* MainViewController.m in Sources */,
+				6F5D66C9200B8674005F8C34 /* Message.mm in Sources */,
 				A05DE2951EE530480056B1A5 /* UIScrollView+Additions.m in Sources */,
 				A0EF16BB1EF2609A0026F7DE /* UINavigationBar+Addition.m in Sources */,
 				3FD4583A2009B7CF00306491 /* DeviceModel.mm in Sources */,
@@ -759,6 +776,7 @@
 				3FC0C9B51FD578360094F05F /* GHHMediator.m in Sources */,
 				A0CD729A1F04FC9000275449 /* LoadImageCell.m in Sources */,
 				A092350A1EE1609C00EB7927 /* OCCallJSViewController.m in Sources */,
+				6F5D66C8200B8674005F8C34 /* WCDBViewController.m in Sources */,
 				A09235071EE1609C00EB7927 /* JSCallOCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -37,8 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession", @"美颜功能", @"tableViewCell加载大图"];
-    self.selectorArray = @[@"RootViewController", @"MainViewController", @"RequestViewController",  @"GPUCameraDemoViewController", @"LoadImageViewController"];
+    self.functionArray = @[@"oc和js交互", @"webView拦截URL", @"NSURLSession", @"美颜功能", @"tableViewCell加载大图", @"数据库操作"];
+    self.selectorArray = @[@"RootViewController", @"MainViewController", @"RequestViewController",  @"GPUCameraDemoViewController", @"LoadImageViewController", @"WCDBViewController"];
     
     BOOL hadLocalVideo = [[VideoManagerCenter shareInstance] restoreLocalVideo];
     if (hadLocalVideo) {
@@ -78,17 +78,15 @@
     [test testPointer];
     
     //测试请求
-    LumiRequest *request = [[LumiRequest alloc] init];
-    NSMutableDictionary *paramer = [NSMutableDictionary dictionary];
-    [paramer setObject:@"lumi.158d00020155d6" forKey:@"did"];
-    [request postWithURL:@"/dev/ircode/query/list" parmas:paramer completeHandle:^(NSDictionary *response, NSError *error) {
-        NSLog(@"稳得一批");
-    }];
+//    LumiRequest *request = [[LumiRequest alloc] init];
+//    NSMutableDictionary *paramer = [NSMutableDictionary dictionary];
+//    [paramer setObject:@"lumi.158d00020155d6" forKey:@"did"];
+//    [request postWithURL:@"/dev/ircode/query/list" parmas:paramer completeHandle:^(NSDictionary *response, NSError *error) {
+//        NSLog(@"稳得一批");
+//    }];
     
     
-    DeviceModel *model = [[DeviceModel alloc] init];
     
-    [model insertIntoDB];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,14 +125,22 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *className = self.selectorArray[indexPath.row];
-    Class class = NSClassFromString(className);
-    if (class) {
-        UIViewController *ctrl = class.new;
-        ctrl.title = self.functionArray[indexPath.row];
-        [self.navigationController pushViewController:ctrl animated:YES];
+    if (indexPath.row == self.selectorArray.count -1) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"WCDB" bundle:nil];
+        UIViewController *controller = [story instantiateViewControllerWithIdentifier:@"WCDBViewController"];
+        [self.navigationController pushViewController:controller animated:YES];
+        
+    } else {
+        NSString *className = self.selectorArray[indexPath.row];
+        Class class = NSClassFromString(className);
+        if (class) {
+            UIViewController *ctrl = class.new;
+            ctrl.title = self.functionArray[indexPath.row];
+            [self.navigationController pushViewController:ctrl animated:YES];
+        }
     }
-    UIViewController *viewController = [[GHHMediator Instance] JumpViewController];
+    
+//    UIViewController *viewController = [[GHHMediator Instance] JumpViewController];
 //    [self.navigationController pushViewController:viewController animated:YES];
 //    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

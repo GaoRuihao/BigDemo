@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class WCTDatabase;
 
 @interface DeviceModel : NSObject
 
@@ -31,8 +32,10 @@
 
 - (void)update;
 
-- (void)insertIntoDB;
+- (void)insertIntoDB:(WCTDatabase *)database;
 
 - (NSArray *)search;
+
++ (WCTDatabase *)setupDatabase;
 
 @end

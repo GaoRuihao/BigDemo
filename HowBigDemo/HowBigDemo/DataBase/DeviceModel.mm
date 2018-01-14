@@ -31,15 +31,7 @@ WCDB_SYNTHESIZE(DeviceModel, from_id)
 - (instancetype)init {
     self = [super init];
     if (self) {
-        // 1.获取Documents路径
-        NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        // 2.创建文件路径
-        NSString *filePath = [docPath stringByAppendingPathComponent:@"test.db"];
         
-        self.database = [[WCTDatabase alloc] initWithPath:filePath];
-        if (![self.database isTableExists:@"Device"]) {
-            BOOL result = [self.database createTableAndIndexesOfName:@"Device" withClass:DeviceModel.class];
-        }
     }
     return self;
 }
@@ -54,17 +46,34 @@ WCDB_SYNTHESIZE(DeviceModel, from_id)
     self.from_id = @"testttt";
 }
 
-- (void)insertIntoDB {
+- (void)insertIntoDB:(WCTDatabase *)database {
     DeviceModel *t4est = [[DeviceModel alloc] init];
     [t4est update];
-    t4est.user_id = @"10098";
-    BOOL result = [self.database insertObject:t4est into:@"Device"];
-    NSLog(@"database test 🐶🐶: %@", result?@"YES":@"NO");
+    t4est.user_id = @"60098";
+    if ([database isOpened]) {
+        BOOL result = [database insertObject:t4est into:@"Device"];
+        NSLog(@"database test 🐶🐶: %@", result?@"YES":@"NO");
+    } else {
+        NSLog(@"error 🐶🐶");
+    }
 }
 
 - (NSArray *)search {
     NSArray<DeviceModel *> *array = [self.database getObjectsOfClass:DeviceModel.class fromTable:@"Device" offset:0];
     return array;
+}
+
++ (WCTDatabase *)setupDatabase {
+    // 1.获取Documents路径
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    // 2.创建文件路径
+    NSString *filePath = [docPath stringByAppendingPathComponent:@"test"];
+    
+    WCTDatabase *database = [[WCTDatabase alloc] initWithPath:filePath];
+    if (![database isTableExists:@"Device"]) {
+        BOOL result = [database createTableAndIndexesOfName:@"Device" withClass:DeviceModel.class];
+    }
+    return database;
 }
 
 @end
